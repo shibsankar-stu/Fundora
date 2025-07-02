@@ -18,6 +18,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  savedFunds: [
+    {
+      schemeCode: Number,
+      schemeName: String,
+      fundHouse: String,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

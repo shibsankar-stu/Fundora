@@ -6,4 +6,5 @@ const { searchFunds, getFundDetails } = require("../controllers/fundController.j
 fundRouter.get("/search", auth, searchFunds);
 fundRouter.get("/details/:schemeCode", auth, getFundDetails);
 
+
 module.exports = fundRouter;

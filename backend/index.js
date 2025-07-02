@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const authRouter = require("./routes/auth.routes");
 const userRouter = require("./routes/user.rotes");
 const fundRouter = require("./routes/fund.routes");
+const saveRouter = require("./routes/saveFund.rotes");
+
 
 const app = express();
 app.use(express.json());
@@ -11,7 +13,9 @@ app.use(express.json());
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
-app.use("/api/funds", fundRouter)
+app.use("/api/funds", fundRouter);
+app.use("/api/save", saveRouter);
+
 
 
 const PORT = process.env.PORT || 4000;
