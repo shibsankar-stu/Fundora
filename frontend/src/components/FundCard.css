@@ -1,0 +1,122 @@
+.fund-detail-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  max-width: 600px;
+  margin: 2rem auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: slideUpFade 0.7s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing animated background ring */
+.fund-detail-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at 50% 50%, #f1c40f, #6c63ff, #8e44ad, #f1c40f);
+  animation: rotateBg 10s linear infinite;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Inner blur layer */
+.fund-detail-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+.fund-detail-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.fund-detail-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+}
+
+.fund-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, #ffeaa7, #f1c40f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fund-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fund-info p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #f0f0f0;
+  padding-left: 1rem;
+  border-left: 3px solid #f1c40f;
+  transition: 0.3s;
+}
+
+.fund-info p:hover {
+  transform: translateX(5px);
+  color: #ffeaa7;
+}
+
+.fund-info span {
+  font-weight: 600;
+  color: #f9e79f;
+}
+
+/* Fade up animation */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient rotation animation */
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .fund-detail-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .fund-title {
+    font-size: 1.4rem;
+  }
+
+  .fund-info p {
+    font-size: 0.95rem;
+  }
+}

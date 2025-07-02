@@ -1,0 +1,135 @@
+/* Full-page background */
+.home-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero card */
+.home-hero {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease;
+}
+
+.home-hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.home-hero h1 span {
+  color: #f1c40f;
+}
+
+.home-hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #ecf0f1;
+}
+
+/* Neumorphic search input */
+.search-input {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  font-size: 1rem;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #ccc;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #f1c40f;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loading */
+.loading {
+  color: #fff;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Results grid */
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 1.5rem;
+}
+
+/* Each result card */
+.fund-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.fund-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.fund-card h3 {
+  font-size: 1.1rem;
+  color: #ffeaa7;
+  margin-bottom: 0.5rem;
+}
+
+.fund-card p {
+  font-size: 0.95rem;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .home-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-hero p {
+    font-size: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}

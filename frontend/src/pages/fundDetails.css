@@ -1,0 +1,74 @@
+/* Page container */
+.fund-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Heading */
+.fund-details-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(90deg, #ffeaa7, #f1c40f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Loading message */
+.fund-loading {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #f1f1f1;
+  font-style: italic;
+}
+
+/* Optional back button */
+.back-button {
+  margin-top: 1rem;
+  background: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.back-button:hover {
+  background: #ffd700;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .fund-details-heading {
+    font-size: 1.8rem;
+  }
+
+  .back-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
