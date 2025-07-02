@@ -46,9 +46,9 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
-
 exports.saveFundToUser = async (req, res) => {
-  const userId = req.user._id; 
+  const userId = req.user._id;
+  console.log("saveFundToUser userId:", userId); // Debugging line
   const { schemeCode, schemeName, fundHouse } = req.body;
 
   try {
