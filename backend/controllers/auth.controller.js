@@ -33,11 +33,11 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "Invalid credentials" });
+    if (!user) return res.status(400).json({ message: "Invalid user" });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "Invalid password" });
 
     const token = jwt.sign(
       { _id: user._id.toString(), email: user.email },
@@ -47,7 +47,6 @@ exports.loginUser = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -64,4 +63,9 @@ exports.loginUser = async (req, res) => {
     console.error("Login Error:", err.message);
     res.status(500).json({ message: "Server error" });
   }
+};
+
+exports.logoutUser = (req, res) => {
+  res.clearCookie("token");
+  res.json({ message: "Logout successful" });
 };
