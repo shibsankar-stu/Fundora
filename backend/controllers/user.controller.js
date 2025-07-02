@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
-exports.getUserProfile = async (req, res) => {
+exports.getUserProfile = async (req, res) => {   // add Header Authorization 
   try {
     const userId = req.user._id;
 

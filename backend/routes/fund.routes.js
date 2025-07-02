@@ -1,9 +1,9 @@
 const express = require("express");
-const router = express.Router();
-const auth = require("../middlewares/auth");
-const { searchFunds, getFundDetails } = require("../controllers/fund.controller");
+const fundRouter = express.Router();
+const auth = require("../middleware/isAuth.js");
+const { searchFunds, getFundDetails } = require("../controllers/fundController.js");
 
-router.get("/search", auth, searchFunds);
-router.get("/:id", auth, getFundDetails);
+fundRouter.get("/search", auth, searchFunds);
+fundRouter.get("/:id", auth, getFundDetails);
 
-module.exports = router;
+module.exports = fundRouter;
