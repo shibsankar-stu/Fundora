@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loginUser } from "../services/auth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./login.css";
 import Navbar from "../components/Navbar";
 
@@ -8,21 +9,34 @@ function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
-
   const navigate = useNavigate();
 
+  // ✅ Check login status from backend
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const checkAuth = async () => {
+      try {
+        const res = await axios.get(
+          "https://fundora-backend-iqz6.onrender.com/api/user/check-auth",
+          { withCredentials: true }
+        );
+        if (res.data.loggedIn) {
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkAuth();
   }, []);
 
+  // ✅ Login handler (no localStorage anymore)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await loginUser(form);
-      const token = res.token;
-      localStorage.setItem("token", token);
+      await loginUser(form); // backend sets httpOnly cookie
       alert("Login successful");
+      setIsLoggedIn(true);
       navigate("/");
     } catch (err) {
       console.error("Login error:", err);
@@ -30,11 +44,20 @@ function Login() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    alert("Logged out successfully");
-    setIsLoggedIn(false);
-    navigate("/login");
+  // ✅ Logout handler (optional logout API)
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "https://fundora-backend-iqz6.onrender.com/api/user/logout",
+        {},
+        { withCredentials: true }
+      );
+      alert("Logged out successfully");
+      setIsLoggedIn(false);
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   return (
