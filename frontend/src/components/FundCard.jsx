@@ -9,6 +9,12 @@ const FundCard = ({ fund }) => {
       await axios.post(
         "https://fundora-backend-iqz6.onrender.com/api/save/save-fund",
         { schemeCode: fund.schemeCode },
+         {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      },
         { withCredentials: true }
       );
       alert("Fund saved successfully!");
