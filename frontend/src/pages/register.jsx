@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { registerUser } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "./Register.css"; // Assuming you have a CSS file for styling
+import "./register.css";
 
 function Register() {
   const [form, setForm] = useState({ fullname: "", email: "", password: "" });
