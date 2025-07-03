@@ -1,122 +1,67 @@
 .fund-detail-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1); /* Glass base */
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 2.5rem 2rem;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
   color: #ffffff;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
   max-width: 600px;
-  margin: 2rem auto;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: slideUpFade 0.7s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Glowing animated background ring */
-.fund-detail-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 180deg at 50% 50%, #f1c40f, #6c63ff, #8e44ad, #f1c40f);
-  animation: rotateBg 10s linear infinite;
-  z-index: 0;
-  opacity: 0.15;
-}
-
-/* Inner blur layer */
-.fund-detail-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  backdrop-filter: blur(20px);
-  z-index: 1;
-}
-
-.fund-detail-card > * {
-  position: relative;
-  z-index: 2;
-}
-
-.fund-detail-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  margin: 1rem auto;
+  animation: fadeInCard 0.8s ease-out;
+  background-image: linear-gradient(135deg, rgba(0, 114, 255, 0.2), rgba(0, 198, 255, 0.25));
 }
 
 .fund-title {
   font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  background: linear-gradient(90deg, #ffeaa7, #f1c40f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.fund-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
 }
 
 .fund-info p {
-  margin: 0;
-  font-size: 1.05rem;
-  color: #f0f0f0;
-  padding-left: 1rem;
-  border-left: 3px solid #f1c40f;
-  transition: 0.3s;
-}
-
-.fund-info p:hover {
-  transform: translateX(5px);
-  color: #ffeaa7;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #ecf0f1;
 }
 
 .fund-info span {
   font-weight: 600;
-  color: #f9e79f;
+  color: #00c6ff;
 }
 
-/* Fade up animation */
-@keyframes slideUpFade {
-  0% {
+/* Save Fund Button */
+.save-fund-btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+.save-fund-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.6);
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+
+/* Animation */
+@keyframes fadeInCard {
+  from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Gradient rotation animation */
-@keyframes rotateBg {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .fund-detail-card {
-    padding: 1.5rem 1.2rem;
-  }
-
-  .fund-title {
-    font-size: 1.4rem;
-  }
-
-  .fund-info p {
-    font-size: 0.95rem;
   }
 }

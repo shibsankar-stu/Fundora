@@ -4,6 +4,8 @@ import axios from "axios";
 import FundCard from "../components/FundCard";
 import "./FundDetails.css";
 
+const FUND_DETAILS_API = "https://api.mfapi.in/mf"
+
 const FundDetails = () => {
   const { code } = useParams();
   const [fund, setFund] = useState(null);
@@ -12,7 +14,7 @@ const FundDetails = () => {
   useEffect(() => {
     const fetchFund = async () => {
       try {
-        const res = await axios.get(`https://api.mfapi.in/mf/${code}`);
+        const res = await axios.get(`${FUND_DETAILS_API}/${code}`);
         setFund({
           schemeName: res.data.meta.scheme_name,
           schemeCode: code,

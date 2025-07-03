@@ -1,0 +1,143 @@
+/* Layout Container */
+.profile-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #001f4d, #0072ff);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Profile Heading */
+.profile-container h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Profile Box */
+.profile-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: slideUp 0.7s ease-in-out;
+}
+
+.profile-box p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #e0f7ff;
+}
+
+.profile-box strong {
+  color: #00c6ff;
+}
+
+/* Saved Funds Section */
+.profile-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Fund List Grid */
+.fund-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Each Fund Card */
+.fund-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.fund-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.fund-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #00e6ff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.fund-card p {
+  margin: 0.3rem 0;
+  color: #e6f9ff;
+  font-size: 1rem;
+}
+
+/* Loading Style */
+.loading {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .profile-container h2 {
+    font-size: 2rem;
+  }
+
+  .profile-box {
+    padding: 1.2rem;
+  }
+
+  .fund-card {
+    padding: 1rem;
+  }
+}

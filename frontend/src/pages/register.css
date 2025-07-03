@@ -1,88 +1,99 @@
-/* Register page background */
 .register-container {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #6c63ff, #8e44ad);
-  animation: fadeIn 1.2s ease;
+  background: linear-gradient(135deg, #001f4d, #00c6ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in;
 }
 
-/* Fade-in animation */
+.register-form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.8s ease-out;
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Input Fields */
+.register-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 2px 2px 8px rgba(0,0,0,0.2),
+              inset -2px -2px 8px rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+}
+
+.register-form input::placeholder {
+  color: #e0f7ff;
+}
+
+.register-form input:focus {
+  outline: none;
+  box-shadow: 0 0 12px #00c6ff;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Submit Button */
+.register-form button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+}
+
+.register-form button:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Animations */
 @keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Register form styling */
-.register-form {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 420px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-/* Heading */
-.form-title {
-  font-size: 2rem;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 2px #000;
-}
-
-/* Input fields */
-.register-form input {
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.4);
-  color: #333;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.register-form input::placeholder {
-  color: #555;
-}
-
-.register-form input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
-}
-
-/* Register button */
-.register-form button {
-  padding: 0.9rem;
-  background: #6c63ff;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.register-form button:hover {
-  background-color: #554fd8;
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* Responsive */

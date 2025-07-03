@@ -1,7 +1,22 @@
 import React from "react";
 import "./FundCard.css";
+import axios from "axios";
 
 const FundCard = ({ fund }) => {
+  const handleSaveFund = async () => {
+    try {
+      await axios.post(
+        "http://localhost:5000/api/save/save-fund",
+        { schemeCode: fund.schemeCode },
+        { withCredentials: true }
+      );
+      alert("Fund saved successfully!");
+    } catch (err) {
+      console.error("Save failed:", err);
+      alert(err.response?.data?.message || "Failed to save fund");
+    }
+  };
+
   return (
     <div className="fund-detail-card">
       <h2 className="fund-title">{fund.schemeName}</h2>
@@ -12,6 +27,9 @@ const FundCard = ({ fund }) => {
         <p><span>Category:</span> {fund.schemeCategory || "N/A"}</p>
         <p><span>Plan:</span> {fund.plan || "N/A"}</p>
       </div>
+      <button className="save-fund-btn" onClick={handleSaveFund}>
+        ⭐ Save Fund
+      </button>
     </div>
   );
 };

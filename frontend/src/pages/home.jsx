@@ -11,6 +11,14 @@ function Home() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const SEARCH_FUND_API = "https://api.mfapi.in/mf"
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login"); 
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const delaySearch = setTimeout(() => {
@@ -26,7 +34,7 @@ function Home() {
   const fetchFunds = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`https://api.mfapi.in/mf/search?q=${query}`);
+      const res = await axios.get(`${SEARCH_FUND_API}/search?q=${query}`);
       setFunds(res.data);
     } catch (error) {
       console.error("Search error", error);
@@ -70,7 +78,7 @@ function Home() {
             </div>
           ))}
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 }

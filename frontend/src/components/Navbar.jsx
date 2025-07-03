@@ -18,6 +18,7 @@ function Navbar() {
           <NavLink to="/" className="nav-link" onClick={toggleMenu}>Home</NavLink>
           <NavLink to="/login" className="nav-link" onClick={toggleMenu}>Login</NavLink>
           <NavLink to="/register" className="nav-link" onClick={toggleMenu}>Register</NavLink>
+          <NavLink to="/profile" className="nav-link" onClick={toggleMenu}>Profile</NavLink>
         </div>
 
         <div className="menu-icon" onClick={toggleMenu}>
