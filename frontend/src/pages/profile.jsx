@@ -4,8 +4,8 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import "./Profile.css";
 
-const USER_API = "http://localhost:5000/api/user";
-const FUND_API = "http://localhost:5000/api/save"
+const USER_API = "https://fundora-backend-iqz6.onrender.com/api/user";
+const FUND_API = "https://fundora-backend-iqz6.onrender.com/api/save"
 
 const Profile = () => {
   const [user, setUser] = useState({});

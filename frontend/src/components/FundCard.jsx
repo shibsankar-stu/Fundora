@@ -6,7 +6,7 @@ const FundCard = ({ fund }) => {
   const handleSaveFund = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/save/save-fund",
+        "https://fundora-backend-iqz6.onrender.com/api/save/save-fund",
         { schemeCode: fund.schemeCode },
         { withCredentials: true }
       );
