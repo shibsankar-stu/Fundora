@@ -5,6 +5,7 @@ import axios from "axios";
 const FundCard = ({ fund }) => {
   const handleSaveFund = async () => {
     try {
+       const token = localStorage.getItem("token");
       await axios.post(
         "https://fundora-backend-iqz6.onrender.com/api/save/save-fund",
         { schemeCode: fund.schemeCode },

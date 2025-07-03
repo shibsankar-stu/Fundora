@@ -17,7 +17,7 @@ export const loginUser = async (userData) => {
     headers: {
       "Content-Type": "application/json",
     },
-    withCredentials: true, // ✅ Required when using res.cookie in backend
+    withCredentials: true, 
   });
         return response.data;
     } catch (error) {
