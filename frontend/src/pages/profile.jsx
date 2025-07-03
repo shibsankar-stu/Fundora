@@ -28,6 +28,8 @@ const Profile = () => {
       const res = await axios.get(`${USER_API}/profile`, {
         withCredentials: true,
       });
+      console.log(res);
+      
       const funds = await axios.get(`${FUND_API}/saved-funds`,{
           withCredentials: true,
         }
