@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loginUser } from "../services/auth";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./login.css";
 import Navbar from "../components/Navbar";
 
 function Login() {

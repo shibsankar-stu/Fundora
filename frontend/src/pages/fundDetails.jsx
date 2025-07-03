@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FundCard from "../components/FundCard";
-import "./FundDetails.css";
+import "./fundDetails.css";
 
 const FUND_DETAILS_API = "https://api.mfapi.in/mf"
 

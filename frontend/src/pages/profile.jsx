@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import "./Profile.css";
+import "./profile.css";
 
 const USER_API = "https://fundora-backend-iqz6.onrender.com/api/user";
 const FUND_API = "https://fundora-backend-iqz6.onrender.com/api/save"
