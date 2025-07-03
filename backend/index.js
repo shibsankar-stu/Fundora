@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser()); 
 
 app.use(cors({
-  origin: "https://fundora-frontend.onrender.com/login",
+  origin: "https://fundora-frontend.onrender.com",
   credentials: true,              
 }));
 
